@@ -10,7 +10,7 @@ curl --location 'http://localhost:8080/api/users/register/driver' \
 "email": "driver_email_new_2@example.com"
 }'
 
-## Register a Rider
+## Register a Rider: cURL
 
 curl --location 'http://localhost:8080/api/users/register/rider' \
 --header 'Content-Type: application/json' \
