@@ -1,19 +1,15 @@
-package app.skillCaptain.cabmanagement;
+package app.skillCaptain.cabmanagement.booking;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
-@Table(name = "driver")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class Driver extends User {
-    @Column(unique=true)
+public class BookingRequest {
+    private String riderId;
     private String driverId;
-    private boolean is_on_duty;
 }

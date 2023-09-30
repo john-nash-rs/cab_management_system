@@ -13,7 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Rider extends User {
-
+    @Column(unique=true)
     private String riderId;
 
 }
