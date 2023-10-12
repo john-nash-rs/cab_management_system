@@ -1,7 +1,11 @@
 package app.skillCaptain.cabmanagement;
 
+import app.skillCaptain.cabmanagement.rating.Rating;
+import app.skillCaptain.cabmanagement.rating.RatingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -9,6 +13,9 @@ public class UserService  {
 
     @Autowired
     private final UserRepository userRepository;
+
+    @Autowired
+    private RatingRepository ratingRepository;
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -35,4 +42,11 @@ public class UserService  {
         return null;
     }
 
+    public Rating postRating(Rating rating) {
+        return ratingRepository.save(rating);
+    }
+
+    public List<Rating> getRatingsForUser(Long userId) {
+        return ratingRepository.findByUserId(userId);
+    }
 }

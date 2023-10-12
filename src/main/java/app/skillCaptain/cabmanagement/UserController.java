@@ -1,9 +1,11 @@
 package app.skillCaptain.cabmanagement;
 
+import app.skillCaptain.cabmanagement.rating.Rating;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -61,5 +63,17 @@ public class UserController {
         } else {
             return ResponseEntity.badRequest().body("Invalid credentials");
         }
+    }
+
+    @PostMapping("/rating")
+    public Rating postRating(@RequestBody Rating rating) {
+        // Implement logic to save the rating to the database
+        return userService.postRating(rating);
+    }
+
+    @GetMapping("/rating/{userId}")
+    public List<Rating> getRatingsForUser(@PathVariable Long userId) {
+        // Implement logic to retrieve ratings for a user from the database
+        return userService.getRatingsForUser(userId);
     }
 }

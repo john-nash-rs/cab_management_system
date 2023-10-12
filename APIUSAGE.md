@@ -26,7 +26,7 @@ curl --location 'http://localhost:8080/api/bookings/book-ride' \
 --header 'Content-Type: application/json' \
 --header 'Cookie: sessionid=2pamdzssnfqtyykrzim2g9w1k6a4dwej' \
 --data '{
-"riderId": "d0da57bd-6f70-4b59-8c03-fbd474883838"
+"riderId": "617192f6-a6c7-4503-bce4-7a8af86de10d"
 }'
 
 ## Confirm a ride
@@ -34,8 +34,8 @@ curl --location 'http://localhost:8080/api/bookings/book-ride' \
 curl --location 'http://localhost:8080/api/bookings/confirm-ride' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --header 'Cookie: sessionid=2pamdzssnfqtyykrzim2g9w1k6a4dwej' \
---data-urlencode 'riderId=d0da57bd-6f70-4b59-8c03-fbd474883838' \
---data-urlencode 'driverId=d0b5ffa4-b177-46be-b4c2-41787a66279e' \
+--data-urlencode 'riderId=617192f6-a6c7-4503-bce4-7a8af86de10d' \
+--data-urlencode 'driverId=03d4b505-4447-4a7e-a30a-07e159dcdccc' \
 --data-urlencode 'bookingId=1' \
 --data-urlencode 'pickupLocation=Location A' \
 --data-urlencode 'dropoffLocation=Location B'
@@ -47,9 +47,24 @@ curl --location --request POST 'http://localhost:8080/api/bookings/cancel-bookin
 
 ## Make a payment
 
-curl --location 'http://localhost:8080/api/bookings/make-payment/2' \
+curl --location 'http://localhost:8080/api/bookings/make-payment/1' \
 --header 'Content-Type: application/json' \
 --header 'Cookie: sessionid=2pamdzssnfqtyykrzim2g9w1k6a4dwej' \
 --data '{
 "amount": 50.0
 }'
+
+## Post the rating
+
+curl --location --request POST 'http://localhost:8080/api/users/rating' \
+--header 'Content-Type: application/json' \
+--data '{
+"userId": 2,
+"rating": 4.7,
+"review": "Professional driver!"
+}'
+
+## Get the rating
+
+curl --location --request GET 'http://localhost:8080/api/users/rating/2'
+
