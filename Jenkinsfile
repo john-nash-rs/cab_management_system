@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'maven:3.9.6-eclipse-temurin-17-alpine' } }
+    agent any
     stages {
         stage('Build') {
             steps {
@@ -10,11 +10,13 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
+                sh 'mvn test'
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                // Add your deployment script/commands here
             }
         }
     }
