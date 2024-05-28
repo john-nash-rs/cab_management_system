@@ -11,6 +11,7 @@ pipeline {
             steps {
                 echo 'Testing..'
                 sh 'export MAVEN_HOME=/opt/homebrew/Cellar/maven/3.9.6/libexec'
+                echo MAVEN_HOME
                 sh 'mvn test'
             }
         }
