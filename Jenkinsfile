@@ -10,6 +10,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
+                sh 'export MAVEN_HOME=/opt/homebrew/Cellar/maven/3.9.6/libexec'
                 sh 'mvn test'
             }
         }
