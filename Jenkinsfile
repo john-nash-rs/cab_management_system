@@ -7,7 +7,6 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'export MAVEN_HOME=/opt/homebrew/Cellar/maven/3.9.6/libexec'
                 sh 'mvn clean install -DskipTests'
             }
         }
